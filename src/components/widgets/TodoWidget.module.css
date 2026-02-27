@@ -1,0 +1,238 @@
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 120px;
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.01);
+    flex-shrink: 0;
+}
+
+.listsHeader {
+    padding: var(--spacing-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.iconBtn {
+    color: var(--color-text-secondary);
+    padding: 2px;
+    border-radius: var(--radius-sm);
+}
+
+.iconBtn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--color-text-main);
+}
+
+.listsContainer {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.listItem:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    color: var(--color-text-main);
+}
+
+.activeList {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.activeList:hover {
+    background-color: rgba(99, 102, 241, 0.15);
+}
+
+.listName {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.deleteListBtn {
+    opacity: 0;
+    color: var(--color-text-secondary);
+    padding: 2px;
+}
+
+.listItem:hover .deleteListBtn {
+    opacity: 1;
+}
+
+.deleteListBtn:hover {
+    color: #ef4444;
+}
+
+.addListForm {
+    padding: var(--spacing-sm);
+    border-top: 1px solid var(--color-border);
+}
+
+.addListForm input {
+    width: 100%;
+    padding: 4px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.header {
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.count {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.addTaskForm {
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.addTaskForm input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color var(--transition-fast);
+}
+
+.addTaskForm input:focus {
+    border-color: var(--color-primary);
+}
+
+.addTaskForm button {
+    background-color: var(--color-primary);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addTaskForm button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.tasksList {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+.emptyState {
+    text-align: center;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-lg);
+    font-size: 0.875rem;
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.taskText {
+    flex: 1;
+    font-size: 0.9375rem;
+    transition: color var(--transition-fast);
+}
+
+.completed .taskText {
+    text-decoration: line-through;
+    color: var(--color-text-secondary);
+}
+
+.checkBtn {
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+}
+
+.checkBtn:hover {
+    color: var(--color-primary);
+}
+
+.completed .checkBtn {
+    color: var(--color-primary);
+}
+
+.deleteTaskBtn {
+    opacity: 0;
+    color: var(--color-text-secondary);
+    transition: opacity var(--transition-fast), color var(--transition-fast);
+}
+
+.taskItem:hover .deleteTaskBtn {
+    opacity: 1;
+}
+
+.deleteTaskBtn:hover {
+    color: #ef4444;
+}

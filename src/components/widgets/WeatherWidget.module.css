@@ -1,0 +1,104 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #60a5fa, #3b82f6);
+    color: white;
+    padding: var(--spacing-md);
+}
+
+.center {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+    color: var(--color-primary);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error {
+    color: #ef4444;
+    font-size: 0.875rem;
+}
+
+.mainInfo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.temp {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.details {
+    text-align: center;
+}
+
+.condition {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+
+.sun {
+    color: #fcd34d;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.cloud {
+    color: #f1f5f9;
+}
+
+.rain {
+    color: #cbd5e1;
+}
+
+.snow {
+    color: white;
+}
+
+.storm {
+    color: #fbbf24;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

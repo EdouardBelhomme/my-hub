@@ -1,0 +1,411 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.calendarSection {
+    padding: var(--spacing-sm);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+}
+
+.header button {
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+}
+
+.header button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--color-text-main);
+}
+
+.monthTitle {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 4px;
+}
+
+.weekday {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    border-radius: var(--radius-sm);
+    position: relative;
+    color: var(--color-text-main);
+}
+
+.day:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.dayOutside {
+    color: var(--color-text-secondary);
+    opacity: 0.5;
+}
+
+.dayToday {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.daySelected {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+    background-color: currentColor;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 4px;
+    opacity: 0.5;
+}
+
+.remindersSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.remindersHeader {
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
+.addBtn {
+    color: var(--color-text-secondary);
+    padding: 2px;
+    border-radius: var(--radius-sm);
+}
+
+.addBtn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--color-text-main);
+}
+
+.addForm {
+    padding: 0 var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.addForm input {
+    width: 100%;
+    padding: 4px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+}
+
+.remindersList {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 var(--spacing-md) var(--spacing-sm);
+}
+
+.emptyState {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin-top: var(--spacing-md);
+}
+
+.reminderItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 6px 0;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.reminderItem:last-child {
+    border-bottom: none;
+}
+
+.reminderIcon {
+    color: var(--color-primary);
+}
+
+
+.accountSelector {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+    background-color: rgba(0, 0, 0, 0.01);
+    flex-wrap: wrap;
+}
+
+.accountItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.accountBtn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.accountBtn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--color-text-main);
+}
+
+.activeAccount {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.disconnectBtn {
+    padding: 4px;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+}
+
+.disconnectBtn:hover {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+.addAccountBtn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.addAccountBtn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--color-text-main);
+}
+
+.badge {
+    font-size: 0.625rem;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    background-color: #dcfce7;
+    color: #166534;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.loading {
+    text-align: center;
+    padding: var(--spacing-sm);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+
+.viewSwitcher {
+    display: flex;
+    gap: 2px;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 2px;
+    border-radius: var(--radius-sm);
+}
+
+.viewBtn {
+    padding: 2px 6px;
+    font-size: 0.65rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.activeView {
+    background-color: var(--color-surface);
+    color: var(--color-text-main);
+    box-shadow: var(--shadow-sm);
+}
+
+
+.weekView {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    height: 100%;
+}
+
+.weekDayColumn {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--color-border);
+    cursor: pointer;
+}
+
+.weekDayColumn:last-child {
+    border-right: none;
+}
+
+.weekDayHeader {
+    text-align: center;
+    padding: 4px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.weekDayName {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--color-text-secondary);
+}
+
+.weekDayDate {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.weekDayEvents {
+    flex: 1;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+}
+
+.weekEventDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+}
+
+.selectedColumn {
+    background-color: rgba(99, 102, 241, 0.05);
+}
+
+
+.dayView {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dayHeader {
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.dayHeader h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.dayEventsList {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-sm);
+}
+
+.dayEventItem {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.eventTime {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    width: 40px;
+}
+
+.eventContent {
+    flex: 1;
+}
+
+.eventTitle {
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.eventSource {
+    font-size: 0.65rem;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+}
+
+.emptyDay {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xl);
+}
+
+
+.yearView {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+}
+
+.yearMonthBtn {
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    background-color: rgba(0, 0, 0, 0.02);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.yearMonthBtn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.calendarSection {
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+}

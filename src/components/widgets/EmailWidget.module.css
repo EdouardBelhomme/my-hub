@@ -1,0 +1,574 @@
+.container {
+    display: flex;
+    height: 100%;
+    background-color: var(--color-surface);
+    position: relative;
+    
+}
+
+
+
+.modalOverlay {
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.composeModal {
+    background-color: white;
+    width: 66%;
+    
+    height: 75%;
+    
+    max-width: none;
+    
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    
+}
+
+
+
+.modalFooter {
+    padding: 1rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    
+    z-index: 10;
+    
+    position: relative;
+}
+
+
+
+.richEditor {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    overflow-y: auto;
+    overflow-x: auto;
+    outline: none;
+    
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.sidebar {
+    width: 200px;
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.01);
+    flex-shrink: 0;
+}
+
+.accountSelector {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: var(--spacing-md);
+}
+
+.accountItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.accountBtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+    text-align: left;
+}
+
+.accountBtn:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    color: var(--color-text-main);
+}
+
+.activeAccount {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.disconnectBtn {
+    padding: 6px;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+}
+
+.disconnectBtn:hover {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+.addAccount {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.addAccount button {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+}
+
+.addAccount button:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    color: var(--color-text-main);
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: var(--spacing-md) 0;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+}
+
+.navItem:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    color: var(--color-text-main);
+}
+
+.navItem.active {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.toolbar {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.03);
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+}
+
+.search input {
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.875rem;
+    color: var(--color-text-main);
+}
+
+.emailList {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.loading,
+.empty {
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+.emailItem {
+    display: flex;
+    align-items: center;
+    padding: 8px var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.emailItem:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.unread {
+    background-color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+}
+
+.unread .sender,
+.unread .subject {
+    color: var(--color-text-main);
+    font-weight: 600;
+}
+
+.emailLeft {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 140px;
+    flex-shrink: 0;
+}
+
+.starBtn {
+    color: var(--color-text-secondary);
+    padding: 2px;
+}
+
+.starBtn:hover {
+    color: var(--color-text-main);
+}
+
+.starred {
+    color: #fbbf24 !important;
+}
+
+.sender {
+    font-size: 0.875rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: var(--spacing-md);
+}
+
+.subject {
+    color: var(--color-text-main);
+}
+
+.preview {
+    color: var(--color-text-secondary);
+    font-weight: 400;
+}
+
+.emailRight {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+.date {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    width: 60px;
+    text-align: right;
+}
+
+
+.emailViewer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.viewerHeader {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.backBtn {
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast);
+}
+
+.backBtn:hover {
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+.viewerSubject {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: var(--spacing-sm);
+}
+
+.viewerMeta {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.875rem;
+}
+
+.viewerSender {
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+.viewerDate {
+    color: var(--color-text-secondary);
+}
+
+.viewerBody {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+}
+
+.emailBody {
+    font-family: inherit;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.6;
+    color: var(--color-text-main);
+}
+
+
+.composeBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background-color 0.2s;
+}
+
+.composeBtn:hover {
+    background-color: #2563eb;
+}
+
+
+.viewerControls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.actionBtns {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.actionBtns button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: #64748b;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.actionBtns button:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+
+
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.modalHeader button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #64748b;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+}
+
+.modalHeader button:hover {
+    background-color: #e2e8f0;
+    color: #ef4444;
+}
+
+.modalBody {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    min-height: 0;
+    
+}
+
+.modalBody input {
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.modalBody textarea {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    resize: none;
+    font-family: inherit;
+}
+
+
+
+.sendBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sendBtn:hover {
+    background-color: #2563eb;
+}
+
+.sendBtn:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+
+
+.attachments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    
+}
+
+.attachmentItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f1f5f9;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+.attachmentItem button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #94a3b8;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.attachmentItem button:hover {
+    color: #ef4444;
+}
+
+.attachBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #64748b;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: auto;
+    transition: color 0.2s;
+}
+
+.attachBtn:hover {
+    color: #3b82f6;
+}
