@@ -94,8 +94,8 @@ graph LR
     LC -->|JSON Stringify| LS[(localStorage: 'hub_layout')]
 
     User -->|Changes setting in Theme Panel| TP[Theme Panel Component]
-    TP -->|setCSSVar('--color-primary')| DOM[document.documentElement]
-    TP -->|setCSSVar('--radius')| DOM
+    TP -->|Update --color-primary| DOM[document.documentElement]
+    TP -->|Update --radius| DOM
     TP -->|Saves configuration object| LC
     LC -->|JSON Stringify| LS2[(localStorage: 'hub_theme')]
 
@@ -144,8 +144,8 @@ flowchart TD
     App -->|Requests unread emails| FetchGoogle[Call GoogleService]
     App -->|Requests unread emails| FetchMicrosoft[Call MicrosoftService]
 
-    FetchGoogle -->|Using Google Token| G_API[Gmail API (/messages)]
-    FetchMicrosoft -->|Using MSAL Token| M_API[Microsoft Graph API (/me/messages)]
+    FetchGoogle -->|Using Google Token| G_API["Gmail API (/messages)"]
+    FetchMicrosoft -->|Using MSAL Token| M_API["Microsoft Graph API (/me/messages)"]
 
     G_API -->|Returns Message List| ParserGoogle[Parse Gmail Format]
     M_API -->|Returns Message List| ParserMicrosoft[Parse Outlook Format]
